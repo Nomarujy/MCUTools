@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "MCUTools/CrcCheck.h"
+#include "MCUTools/CrcAlgorithm.h"
 
 
 TEST(CRC, SingleByte)
@@ -7,8 +7,7 @@ TEST(CRC, SingleByte)
     uint8_t byte = 0xDC;
     uint8_t validCrc = 0x79;
 
-    EXPECT_TRUE(crc8_validate(&byte, 1, 0, validCrc));
-    EXPECT_FALSE(crc8_validate(&byte, 1, 0, validCrc - 1));
+    EXPECT_EQ(crc8_DallasMaxim(&byte, 1), validCrc);
 }
 
 TEST(CRC, MultiplyByte)
@@ -21,9 +20,9 @@ TEST(CRC, MultiplyByte)
 
     for (size_t i = 0; i < 2; i++)
     {
-        EXPECT_TRUE(crc8_validate(validMessages + i * 3, 2, 0, validMessages[2 + i * 3]));
+        uint8_t calculated = crc8_DallasMaxim(validMessages + 3 * i, 2);
+        uint8_t expected = validMessages[2 + i * 3 ];
 
-        EXPECT_FALSE(crc8_validate(validMessages + i * 3, 2, 0, 0));
+        EXPECT_EQ(calculated, expected);
     }
-    
 }
