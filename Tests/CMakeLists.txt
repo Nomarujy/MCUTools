@@ -17,9 +17,10 @@ add_executable(${PROJECT_NAME}
 )
 
 target_link_libraries(${PROJECT_NAME}
-  CrcCheckLib
+  MCUToolsLib
   GTest::gtest_main
 )
 
 include(GoogleTest)
 gtest_discover_tests(${PROJECT_NAME})
+enable_testing()

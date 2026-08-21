@@ -15,5 +15,5 @@ option(BUILD_TESTING "Build unit tests" ON)
 
 if(BUILD_TESTING)
     add_subdirectory(Tests)
-
+    enable_testing()
 endif()
