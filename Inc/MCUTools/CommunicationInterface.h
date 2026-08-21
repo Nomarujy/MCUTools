@@ -1,6 +1,11 @@
 #pragma once
 #include "stdint.h"
 
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef struct
 {
     /// @brief return transmited bytes
@@ -9,3 +14,8 @@ typedef struct
     /// @brief return recived bytes
     size_t (*recive)(uint8_t buffer, size_t bufferSize);
 } CommunicationInterface;
+
+
+#ifdef __cplusplus
+}
+#endif
