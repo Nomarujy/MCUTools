@@ -1,5 +1,5 @@
 
-project("Crc_Tests")
+project("MCUTools_Tests")
 
 
 include(FetchContent)

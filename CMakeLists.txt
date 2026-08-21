@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.18)
-project("CrcCheckLib" LANGUAGES C)
+project("MCUToolsLib" LANGUAGES C)
 
 add_library(${PROJECT_NAME} STATIC 
 Src/CrcCheck.c
