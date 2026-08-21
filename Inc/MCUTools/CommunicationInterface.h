@@ -1,7 +1,7 @@
 #pragma once
 #include "stdint.h"
 
-struct ComunicationInterface
+struct CommunicationInterface
 {
     /// @brief return transmited bytes
     size_t (*transmit)(uint8_t data, size_t dataSize);
